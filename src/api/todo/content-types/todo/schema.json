@@ -4,10 +4,11 @@
   "info": {
     "singularName": "todo",
     "pluralName": "todos",
-    "displayName": "Todo"
+    "displayName": "Post",
+    "description": ""
   },
   "options": {
-    "draftAndPublish": false
+    "draftAndPublish": true
   },
   "pluginOptions": {},
   "attributes": {
@@ -15,10 +16,41 @@
       "type": "string",
       "required": true
     },
-    "user": {
-      "type": "relation",
-      "relation": "oneToOne",
-      "target": "plugin::users-permissions.user"
+    "likes": {
+      "type": "biginteger",
+      "default": "0"
+    },
+    "titleImage": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "type": {
+      "type": "enumeration",
+      "enum": [
+        "Прогнозы",
+        "Кейсы",
+        "Интервью"
+      ],
+      "required": true
+    },
+    "article": {
+      "type": "dynamiczone",
+      "components": [
+        "video.video",
+        "text.text",
+        "sign.sign",
+        "quote.quote",
+        "numerate.numerate",
+        "list.list",
+        "images.images",
+        "header.header",
+        "author.author"
+      ],
+      "required": true
     }
   }
 }
